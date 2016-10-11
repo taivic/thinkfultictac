@@ -14,6 +14,7 @@ $(document).ready(function() {
 		result();
 	})
 	
+	
 	var nextOX = function() {
 		if (currentOX == 0) {
 			currentOX = 1;
@@ -37,23 +38,56 @@ $(document).ready(function() {
 //results of the game
 //if the value of board
 	var result = function() {
+		//top row
 		if(board[0][0] === board[0][1]) {
 			if (board[0][0] === board [0][2]) {
-				$("#results").html("<p>Player " + ox[currentOX-1] + " Wins!!</p>")
+				$("#results").html("<p>Player " + ox[currentOX] + " Wins!!</p>")
 			}
 		}
-/*		else if (board[1][0] === board[1][1]) {	
-			if (board[1][0] === board [1][2]) {
-				$("#results").html("<p>Player " + ox[currentOX-1] + " Wins!!</p>")
+		//middle row
+		else if (board[1][1] === board[0][1]) {
+			if (board[1][1] === board [2][1]) {
+				$("#results").html("<p>Player " + ox[currentOX] + " Wins!!</p>")
 			}
-		}	
+		}
+		//bottom row		
 		else if (board[2][0] === board[2][1]) {
 			if (board[2][0] === board [2][2]) {
-				$("#results").html("<p>Player " + ox[currentOX-1] + " Wins!!</p>")
+				$("#results").html("<p>Player " + ox[currentOX] + " Wins!!</p>")
+			}
+		}
+		//left column
+		else if (board[0][0] === board[1][0]) {	
+			if (board[0][0] === board [2][0]) {
+				$("#results").html("<p>Player " + ox[currentOX] + " Wins!!</p>")
+			}
+		}
+		//middle column
+		else if (board[0][1] === board[1][1]) {
+			if (board[0][1] === board [2][1]) {
+				$("#results").html("<p>Player " + ox[currentOX] + " Wins!!</p>")
+			}
+		}
+		//right column
+		else if (board[0][2] === board[1][2]) {
+			if (board[0][2] === board [2][2]) {
+				$("#results").html("<p>Player " + ox[currentOX] + " Wins!!</p>")
+			}
+		}
+		//left to right diagonal
+		else if (board[0][0] === board[1][1]) {	
+			if (board[0][0] === board [2][2]) {
+				$("#results").html("<p>Player " + ox[currentOX] + " Wins!!</p>")
+			}
+		}
+		//right to left diagonal
+		else if (board[1][1] === board[0][2]) {
+			if (board[1][1] === board [2][0]) {
+				$("#results").html("<p>Player " + ox[currentOX] + " Wins!!</p>")
 			}
 		}
 		else {
-			$("#results").html("<p>Keep going!</p>")
-		}*/
+			$("#results").html("<p>It's a tie</p>")
+		}
 	}
 })
